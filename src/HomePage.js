@@ -3,9 +3,13 @@ import React from 'react';
 
 const HomePage = () => (
   <div>
-    <h1>Welcome</h1>
-    {/* Link to navigate to the ConsentPage */}
-    <a href="/consent">Go to Consent Page</a>
+    <p style={{ fontSize: '45px' }}>Measuring Emotions During Multimedia Interaction</p>
+    <div>
+      <p></p>
+      <button className="App-button" onClick={() => { window.location.href = "/consent"; }}>
+        Start
+      </button>
+    </div>
   </div>
 );
 
