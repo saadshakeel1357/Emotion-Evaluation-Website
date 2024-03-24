@@ -6,6 +6,7 @@ import ConsentPage from './ConsentPage';  // Import the ConsentPage component
 import HomePage from './HomePage';        // Import the HomePage component
 import DemographicPage from './DemographicPage';  // Import the DemographicPage component
 import Instructions from './Instructions';  // Import the Instructions component
+import Experiment from './Experiment';  // Import the Instructions component
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/consent" element={<ConsentPage />} />
             <Route path="/demographic" element={<DemographicPage />} />
             <Route path="/instructions" element={<Instructions />} />
+            <Route path="/experiment" element={<Experiment />} />
           </Routes>
         </header>
       </div>
