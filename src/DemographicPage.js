@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './App.css';
 
 // DemographicPage component
 const DemographicPage = () => {
@@ -36,7 +35,24 @@ const DemographicPage = () => {
     e.preventDefault();
 
     if (formValid) {
-      navigate('/instructions');
+      // Save form data to sessionStorage
+      sessionStorage.setItem('formData', JSON.stringify(formData));
+      
+      // Create a Blob object containing the JSON data
+      const blob = new Blob([JSON.stringify(formData)], { type: 'application/json' });
+
+      // Create a temporary anchor element to download the JSON file
+      const anchor = document.createElement('a');
+      anchor.href = URL.createObjectURL(blob);
+      anchor.download = 'formData.json';
+
+      // Trigger the download
+      anchor.click();
+
+      // Clean up
+      URL.revokeObjectURL(anchor.href);
+
+      navigate('/instructions'); // Navigate to the next page
     } else {
       alert('Please fill in all required fields.');
     }
