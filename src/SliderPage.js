@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './App.css';
 
 const SliderPage = () => {
   // Initialize necessary state variables
   const navigate = useNavigate();
-  const [valence, setValence] = useState(4); // Initial value for valence slider
-  const [arousal, setArousal] = useState(5); // Initial value for arousal slider
+  const [valence, setValence] = useState(0); // Initial value for valence slider
+  const [arousal, setArousal] = useState(0); // Initial value for arousal slider
   const [clickCount, setClickCount] = useState(() => {
     // Retrieve click count from local storage or default to 0
     const storedClickCount = localStorage.getItem('clickCount');
-    return storedClickCount ? parseInt(storedClickCount, 10) : 0;
+    return storedClickCount ? parseInt(storedClickCount, 10) : 1;
   });
-  const [valenceModified, setValenceModified] = useState(true); // Track if valence slider is modified
-  const [arousalModified, setArousalModified] = useState(true); // Track if arousal slider is modified
+  const [valenceModified, setValenceModified] = useState(false); // Track if valence slider is modified
+  const [arousalModified, setArousalModified] = useState(false); // Track if arousal slider is modified
 
   // Handler for valence slider change
   const handleValenceChange = (e) => {
@@ -27,19 +27,53 @@ const SliderPage = () => {
     setArousalModified(true); // Set arousalModified to true when arousal slider is modified
   };
 
+  const data = {};
+
   // Handler for next button click
   const handleNextButtonClick = () => {
+    console.log(clickCount)
     // Check if both valence and arousal sliders are modified
     if (valenceModified && arousalModified) {
       // Increment click count
       const updatedClickCount = clickCount + 1;
       setClickCount(updatedClickCount);
 
+      // Save current valence and arousal values to session storage
+      sessionStorage.setItem(`valence${updatedClickCount-1}`, valence.toString());
+      sessionStorage.setItem(`arousal${updatedClickCount-1}`, arousal.toString());
+
+      // Retrieve valence and arousal values from session storage and store in data object
+      for (let i = 1; i <= 10; i++) {
+        data[`valence${i}`] = sessionStorage.getItem(`valence${i}`);
+        data[`arousal${i}`] = sessionStorage.getItem(`arousal${i}`);
+      }
+
       // Save click count to local storage
       localStorage.setItem('clickCount', updatedClickCount.toString());
 
-      if (updatedClickCount >= 10) {
+      if (updatedClickCount > 3) {
+        // Convert data to JSON string
+        const jsonData = JSON.stringify(data);
+
+        // Create a blob with the data
+        const blob = new Blob([jsonData], { type: 'application/json' });
+
+        // Create a link to download the JSON file
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'session_data.json';
+
+        // Trigger the click event of the link to start download
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        // Clear session storage
+        sessionStorage.clear();
+
         // Redirect to thank you page if click count exceeds 10
+        handleResetButtonClick();
         navigate('/thankyou');
       } else {
         // Redirect back to the timer page to restart the process
@@ -51,10 +85,12 @@ const SliderPage = () => {
     }
   };
 
+
   // Handler for reset button click
   const handleResetButtonClick = () => {
     // Clear click count from local storage
     localStorage.removeItem('clickCount');
+    console.log("count reset");
     // Reset click count in the state
     setClickCount(0);
   };
@@ -96,14 +132,11 @@ const SliderPage = () => {
       </div>
 
       {/* Next button */}
-      <button className="App-button" onClick={handleNextButtonClick} disabled={!valenceModified || !arousalModified}>
+      <button className="App-button" onClick={handleNextButtonClick} >
         Next
       </button>
 
-      {/* Reset button */}
-      <button className="App-button" onClick={handleResetButtonClick}>
-        Reset Click Count
-      </button>
+
     </div>
   );
 };

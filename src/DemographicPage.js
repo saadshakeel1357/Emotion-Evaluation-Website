@@ -8,8 +8,7 @@ const DemographicPage = () => {
     age: '',
     gender: '',
     education: '',
-    occupation: '',
-    skincolor: ''
+    field: ''
   });
   const [formValid, setFormValid] = useState(false); // Track form validity
   const navigate = useNavigate();
@@ -38,19 +37,19 @@ const DemographicPage = () => {
       // Save form data to sessionStorage
       sessionStorage.setItem('formData', JSON.stringify(formData));
       
-      // Create a Blob object containing the JSON data
-      const blob = new Blob([JSON.stringify(formData)], { type: 'application/json' });
+      // // Create a Blob object containing the JSON data
+      // const blob = new Blob([JSON.stringify(formData)], { type: 'application/json' });
 
-      // Create a temporary anchor element to download the JSON file
-      const anchor = document.createElement('a');
-      anchor.href = URL.createObjectURL(blob);
-      anchor.download = 'formData.json';
+      // // Create a temporary anchor element to download the JSON file
+      // const anchor = document.createElement('a');
+      // anchor.href = URL.createObjectURL(blob);
+      // anchor.download = 'formData.json';
 
-      // Trigger the download
-      anchor.click();
+      // // Trigger the download
+      // anchor.click();
 
-      // Clean up
-      URL.revokeObjectURL(anchor.href);
+      // // Clean up
+      // URL.revokeObjectURL(anchor.href);
 
       navigate('/instructions'); // Navigate to the next page
     } else {
@@ -64,11 +63,18 @@ const DemographicPage = () => {
       <p style={{ fontSize: '45px' }}>Demographics</p>
       {/* Form */}
       <form onSubmit={handleSubmit}>
-        <div style={{ height: '180px', overflowY: 'auto', border: '1px solid white', borderRadius: '5px', padding: '10px', width: '450px' }}>
+        <div style={{ height: '150px', overflowY: 'auto', border: '1px solid white', borderRadius: '5px', padding: '10px', width: '450px' }}>
           {/* Individual form fields */}
           <div>
             <label htmlFor="age" style={{ fontSize: '18px' }}>Age:  </label>
-            <input type="number" id="age" name="age" value={formData.age} onChange={handleInputChange} style={{ fontSize: '10px' }} />
+            <select id="age" name="age" value={formData.age} onChange={handleInputChange} style={{ fontSize: '10px' }}>
+              <option value="">Select</option>
+              <option value="underage">18 below</option>
+              <option value="young">18-25</option>
+              <option value="midage">26-40</option>
+              <option value="old">41 above</option>
+              {/* <option value="other">Other</option> */}
+            </select>
           </div>
           <div>
             <label htmlFor="gender" style={{ fontSize: '18px' }}>Gender:  </label>
@@ -76,21 +82,30 @@ const DemographicPage = () => {
               <option value="">Select</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
-              <option value="other">Other</option>
+              {/* <option value="other">Other</option> */}
             </select>
           </div>
           <div>
             <label htmlFor="education" style={{ fontSize: '18px' }}>Education Level:  </label>
-            <input type="text" id="education" name="education" value={formData.education} onChange={handleInputChange} style={{ fontSize: '10px' }} />
+            <select id="education" name="education" value={formData.education} onChange={handleInputChange} style={{ fontSize: '10px' }}>
+              <option value="">Select</option>
+              <option value="Bachelor">Bachelor</option>
+              <option value="Master">Master</option>
+              <option value="PhD">PhD</option>
+            </select>
           </div>
           <div>
-            <label htmlFor="occupation" style={{ fontSize: '18px' }}>Occupation:  </label>
-            <input type="text" id="occupation" name="occupation" value={formData.occupation} onChange={handleInputChange} style={{ fontSize: '10px' }} />
+            <label htmlFor="field" style={{ fontSize: '18px' }}>Field of Study:  </label>
+            <select id="field" name="field" value={formData.field} onChange={handleInputChange} style={{ fontSize: '10px' }}>
+              <option value="">Select</option>
+              <option value="cs">Computer Science</option>
+              <option value="finance">Finance</option>
+              <option value="psychology">Psychology</option>
+              <option value="other">Other</option>
+            </select>
           </div>
-          <div>
-            <label htmlFor="skincolor" style={{ fontSize: '18px' }}>Skin Color:  </label>
-            <input type="text" id="skincolor" name="skincolor" value={formData.skincolor} onChange={handleInputChange} style={{ fontSize: '10px' }} />
-          </div>
+
+
         </div>
         {/* Submit button */}
         <button type="submit" className="App-button" style={{ marginTop: '20px' }} disabled={!formValid}>

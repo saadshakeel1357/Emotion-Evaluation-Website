@@ -9,6 +9,7 @@ import Instructions from './Instructions';  // Import the Instructions component
 import Experiment from './Experiment';  // Import the Instructions component
 import SliderPage from './SliderPage';  // Import the Instructions component
 import ThankYouPage from './ThankYouPage';  // Import the Instructions component
+import Description from './Description';  // Import the Description component
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/experiment" element={<Experiment />} />
             <Route path="/sliders" element={<SliderPage />} />
             <Route path="/thankyou" element={<ThankYouPage />} />
+            <Route path="/description" element={<Description />} />
           </Routes>
         </header>
       </div>
