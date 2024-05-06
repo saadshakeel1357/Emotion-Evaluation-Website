@@ -29,13 +29,25 @@ const ConsentPage = () => {
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
       {/* Video */}
-      <video autoPlay loop muted playsInline style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', opacity:'0.9' }} playbackRate={0.25} >
+      <video autoPlay loop muted playsInline style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', opacity:'0.7' }} playbackRate={0.25} >
         <source src={videoBg} type="video/mp4"></source>
       </video>
 
       {/* SVG */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-        <img src={mySvg} alt="Consent Page" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+      <img 
+        src={mySvg} 
+        alt="Consent Page" 
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          objectFit: 'cover'
+        }} 
+      />
+
 
         
         {/* Start button links */}

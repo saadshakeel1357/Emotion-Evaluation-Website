@@ -7,7 +7,7 @@ const Description = () => {
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
       {/* Video */}
-      <video autoPlay loop muted playsInline style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', opacity:'0.9' }} playbackRate={0.25} >
+      <video autoPlay loop muted playsInline style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', opacity:'0.7' }} playbackRate={0.25} >
         <source src={videoBg} type="video/mp4"></source>
       </video>
 
