@@ -1,6 +1,6 @@
 // HomePage.js
 import React from 'react';
-import videoBg from "./components/sky.mp4";
+import videoBg from "./components/bgvideo.mp4";
 import mySvg from './components/HomePage.svg';
 import './styling/HomePage.css'; // Import CSS file for styling
 import './styling/App.css'; // Import CSS file for styling

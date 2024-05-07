@@ -1,59 +1,49 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from React Router
+import { useLocation } from 'react-router-dom'; // Import useLocation hook from React Router
+import videoBg from "./components/bgvideo.mp4";
 import './App.css';
-import videoBg from "./components/sky.mp4";
-import mySvg from './components/ConsentPage.svg';
+import './styling/ConsentPage.css'; // Import CSS file for styling
 
-// ConsentPage component
 const ConsentPage = () => {
-  // State to manage checkbox status
-  const [isChecked, setIsChecked] = useState(false);
-  const navigate = useNavigate();
-
-  // Handler for checkbox change
-  const handleCheckboxChange = (e) => {
-    setIsChecked(e.target.checked);
-  };
-
-  // // Handler for next button click
-  // const handleNextButtonClick = () => {
-  //   if (isChecked) {
-  //     // Navigate to the next page if checkbox is checked
-  //     navigate('/demographic');
-  //   } else {
-  //     // Display an alert or handle the case when checkbox is not checked
-  //     alert('Please agree to the terms and conditions to proceed.');
-  //   }
-  // };
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const randomId = searchParams.get('randomId');
 
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
       {/* Video */}
-      <video autoPlay loop muted playsInline style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', opacity:'0.7' }} playbackRate={0.25} >
+      <video autoPlay loop muted playsInline style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', opacity:'0.8' }} playbackRate={0.25} >
         <source src={videoBg} type="video/mp4"></source>
       </video>
 
-      {/* SVG */}
-      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-      <img 
-        src={mySvg} 
-        alt="Consent Page" 
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          objectFit: 'cover'
-        }} 
-      />
+      {/* Container for elements */}
+      <div className="container">
+        {/* Welcome text */}
+        <div className="terms-and-conditions">Terms and Conditions</div>
 
+        {/* Input Box */}
+        <div className="terms-box">
+          When you use this website, you're allowing us to gather and analyze your interaction data, which includes assessing valence and arousal, for research and analysis.
+          <br /><br />
+          Rest assured, your data will be securely stored and processed using advanced data science methods and back-end technologies.
+          <br /><br />
+          Your personal information will remain confidential at all times.
+          <br /><br />
+          We use a unique participant id (top-right corner) to identify your saved data.
+          <br /><br />
+          By clicking the "I agree" button below, you agree to the conditions defined above.
+        </div>
 
-        
-        {/* Start button links */}
-        <a href="/demographic" style={{ position: 'absolute', top: '84.4%', left: '62.3%', transform: 'translate(-50%, -50%)', color: 'white', textDecoration: 'none', padding: '10px 25px',  borderRadius: '10px'}}> </a>
-        
+        {/* Next button links */}
+        <Link to={`/demographic?randomId=${randomId}`} className="next-button">I agree</Link>
       </div>
+
+      {/* Participant ID */}
+      <button className="user-id">{randomId}</button>
+
+      {/* VibeVision text */}
+      <div className="vibe-vision">VibeVision</div>
     </div>
   );
 };

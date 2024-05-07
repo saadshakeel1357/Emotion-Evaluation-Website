@@ -1,25 +1,25 @@
 .user-id {
-    position: absolute;
-    top: 55px;
-    left: 92.5%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-decoration: none;
-    padding: 25px 45px; /* Adjust padding as needed */
-    border-radius: 38px; /* To make it almost oval */
-    border: 4px solid white; /* stroke */
-    background-color: transparent; /* Empty from the inside */
-    font-family: cursive; /* Change font to Arial, or specify any other font */
-    font-size: 35px; /* Larger font size */
-    line-height: 0.2; /* Ensure the text doesn't increase box size */
-  } 
+  position: absolute;
+  top: 55px;
+  left: 92.5%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-decoration: none;
+  padding: 25px 45px; /* Adjust padding as needed */
+  border-radius: 38px; /* To make it almost oval */
+  border: 4px solid white; /* stroke */
+  background-color: transparent; /* Empty from the inside */
+  font-family: cursive; /* Change font to Arial, or specify any other font */
+  font-size: 35px; /* Larger font size */
+  line-height: 0.2; /* Ensure the text doesn't increase box size */
+} 
   
   
-  .vibe-vision {
-    position: absolute;
-    top: 22px;
-    left: 4%;
-    font-family: 'Niconne', cursive;
-    font-size: 45px;
-    color: white;
-    }
+.vibe-vision {
+  position: absolute;
+  top: 22px;
+  left: 4%;
+  font-family: 'Niconne', cursive;
+  font-size: 45px;
+  color: white;
+}

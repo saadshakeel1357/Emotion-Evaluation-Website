@@ -1,5 +1,7 @@
+// Description.js
 import React from 'react';
-import videoBg from "./components/sky.mp4";
+import { Link } from 'react-router-dom'; // Import Link from React Router
+import videoBg from "./components/bgvideo.mp4";
 import './styling/Description.css'; // Import CSS file for styling
 import './styling/App.css'; // Import CSS file for styling
 
@@ -36,7 +38,7 @@ const Description = () => {
         </div>
 
         {/* Next button links */}
-        <button className="next-button" onClick={() => window.location.href = "/consent"}>Next</button>
+        <Link to={`/consent?randomId=${randomId}`} className="next-button">Next</Link>
 
 
       </div>
