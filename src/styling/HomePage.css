@@ -1,41 +1,25 @@
 /* HomePage.css */
 .start-button {
-    position: absolute;
-    top: 64.4%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-decoration: none;
-    padding: 25px 38px; /* Adjust padding as needed */
-    border-radius: 38px; /* To make it almost oval */
-    border: 5px solid white; /* Thick stroke */
-    background-color: transparent; /* Empty from the inside */
-    backdrop-filter: blur(30px); /* Blur from the inside */
-    font-size: 34px; /* Larger font size */
-    line-height: 0.5; /* Ensure the text doesn't increase box size */
-  }
-  
-  
-  
-  .start-button:hover {
-    font-size: 38px; /* Larger font size */
-  }
+  position: absolute;
+  top: 64.4%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-decoration: none;
+  padding: 25px 38px; /* Adjust padding as needed */
+  border-radius: 38px; /* To make it almost oval */
+  border: 5px solid white; /* Thick stroke */
+  background-color: transparent; /* Empty from the inside */
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px); /* Blur from the inside */
+  font-size: 34px; /* Larger font size */
+  line-height: 0.5; /* Ensure the text doesn't increase box size */
+}
 
 
-.top-right-button {
-    position: absolute;
-    top: 3.9%;
-    left: 91.1%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-decoration: none;
-    padding: 25px 45px; /* Adjust padding as needed */
-    border-radius: 38px; /* To make it almost oval */
-    border: 5px solid white; /* Thick stroke */
-    background-color: transparent; /* Empty from the inside */
-    font-family: cursive; /* Change font to Arial, or specify any other font */
-    font-size: 34px; /* Larger font size */
-    line-height: 0.5; /* Ensure the text doesn't increase box size */
-  }
-  
-  
+
+.start-button:hover {
+  font-size: 38px; /* Larger font size */
+}
+
+
