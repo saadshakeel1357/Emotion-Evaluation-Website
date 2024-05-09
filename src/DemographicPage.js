@@ -140,8 +140,8 @@ const DemographicPage = () => {
 					</div>
 				</div>
 
-					<button type="submit" className="form-button" disabled={formValid}>
-						<Link to={`/instructions?randomId=${randomId}`} className='link' >Next</Link>
+					<button type="submit" className="form-button" disabled={formValid}>Next
+						{/* <Link to={`/instructions?randomId=${randomId}`} className='link' >Next</Link> */}
 					</button>
 					
 			</div>
