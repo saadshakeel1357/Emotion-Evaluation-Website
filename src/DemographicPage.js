@@ -136,16 +136,14 @@ const DemographicPage = () => {
 							</select>
 						</div>
 
-						{/* Submit button */}
-
-
 					</form>
 					</div>
 				</div>
 
-					<button type="submit" className="form-button" disabled={!formValid}>
-							Next
+					<button type="submit" className="form-button" disabled={formValid}>
+						<Link to={`/instructions?randomId=${randomId}`} className='link' >Next</Link>
 					</button>
+					
 			</div>
 		
 		</div>

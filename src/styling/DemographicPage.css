@@ -67,3 +67,9 @@
                  -1px  1px 0 #000,
                   1px  1px 0 #000; /* Stroke effect */
 }
+
+
+.link{
+  color: white;
+  text-decoration: none;
+}
