@@ -52,7 +52,7 @@ const SliderPage = () => {
       // Save click count to local storage
       localStorage.setItem('clickCount', updatedClickCount.toString());
 
-      if (updatedClickCount > 3) {
+      if (updatedClickCount > 10) {
         // Convert data to JSON string
         const jsonData = JSON.stringify(data);
 

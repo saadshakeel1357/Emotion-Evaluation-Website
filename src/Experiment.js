@@ -48,18 +48,10 @@ const Experiment = () => {
   }, []);
 
   const handleStartButtonClick = () => {
-    // // Choose the appropriate sound based on clickCount
-    // const soundToPlay = clickCount === 1 ? mySound1 : mySound2;
-    // // Change the sound source
-    // playSound({ sound: soundToPlay });
 
     console.log("experiment: " + clickCount);
 
-    if (clickCount === 1) {
-      playSound(mySound2);
-    } else {
-      playSound(mySound1);
-    };
+    playSound(getDefaultSound());
 
 
     // Stop audio after 10 seconds and navigate to '/sliders'
