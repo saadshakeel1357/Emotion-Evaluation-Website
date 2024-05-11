@@ -1,0 +1,23 @@
+.stats-button {
+    position: absolute;
+    top: 79%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-decoration: none;
+    padding: 13px 24px; /* Adjust padding as needed */
+    border-radius: 10px; /* To make it almost oval */
+    border: 1.5px solid white; /* Thick stroke */
+    background-color: transparent; /* Empty from the inside */
+    -webkit-backdrop-filter: blur(50px);
+            backdrop-filter: blur(50px); /* Blur from the inside */
+    font-size: 22px; /* Larger font size */
+    line-height: 0.7; /* Ensure the text doesn't increase box size */
+  }
+  
+  
+  .stats-button:hover {
+    font-size: 24px; /* Larger font size */
+    border: 3px solid white; /* Thick stroke */
+
+  }

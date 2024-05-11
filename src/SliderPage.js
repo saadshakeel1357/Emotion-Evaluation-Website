@@ -1,10 +1,19 @@
 import React, { useState} from 'react';
+import { useLocation } from 'react-router-dom'; // Import useLocation hook from React Router
 import { useNavigate } from 'react-router-dom';
-import './App.css';
+import './styling/SliderPage.css';
+import videoBg from "./components/bgvideo.mp4";
+import VAImage from "./components/valence-arousal.png"; // Import your image file
+
+
 
 const SliderPage = () => {
   // Initialize necessary state variables
   const navigate = useNavigate();
+	const location = useLocation();
+	const searchParams = new URLSearchParams(location.search);
+  const randomId = searchParams.get('randomId');
+
   const [valence, setValence] = useState(1); // Initial value for valence slider
   const [arousal, setArousal] = useState(1); // Initial value for arousal slider
 
@@ -52,7 +61,7 @@ const SliderPage = () => {
       // Save click count to local storage
       localStorage.setItem('clickCount', updatedClickCount.toString());
 
-      if (updatedClickCount > 10) {
+      if (updatedClickCount > 3) {
         // Convert data to JSON string
         const jsonData = JSON.stringify(data);
 
@@ -74,10 +83,10 @@ const SliderPage = () => {
         sessionStorage.clear();
 
         // Redirect to thank you page if click count exceeds 10
-        navigate('/thankyou');
+        navigate(`/thankyou?randomId=${randomId}`)
       } else {
         // Redirect back to the timer page to restart the process
-        navigate('/experiment');
+        navigate(`/experiment?randomId=${randomId}`);
       }
     } else {
       // Alert user if sliders are not both modified
@@ -89,45 +98,64 @@ const SliderPage = () => {
 
   return (
     <div>
-      {/* Header and instructions */}
-      <p style={{ fontSize: '25px' }}>Arousal is an emotional dimension of musical energy level, while Valence is an emotional dimension of the comfort level of the listener</p>
-      <p style={{ fontSize: '35px' }}>Please report the extent of what you feel about the valence and arousal of the audio played previously</p>
 
-      {/* Valence slider */}
-      <div style={{ marginBottom: '20px' }}>
-        <label htmlFor="valenceSlider">Valence:</label>
-        <input
-          type="range"
-          id="valenceSlider"
-          name="valenceSlider"
-          min="1"
-          max="9"
-          value={valence}
-          onChange={handleValenceChange}
-        />
-        <span>{valence}</span>
+
+			{/* Video */}
+			<video autoPlay loop muted playsInline style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', opacity:'0.8' }} playbackrate={0.25} >
+				<source src={videoBg} type="video/mp4"></source>
+			</video>
+
+      <img src={VAImage} alt="Background" style={{ position: 'absolute', top: '148px', left: '850px', width: '24%', height: '30%' }} />
+
+
+      <div className="slider-box">
+
+        <div className='sliders'>
+
+              {/* Valence slider */}
+              <div  className='slider'>
+                <label htmlFor="valenceSlider">Valence:</label>
+                <input
+                  type="range"
+                  id="valenceSlider"
+                  name="valenceSlider"
+                  min="1"
+                  max="9"
+                  value={valence}
+                  onChange={handleValenceChange}
+                />
+                <span>{valence}</span>
+              </div>
+
+              {/* Arousal slider */}
+              <div className='slider'>
+                <label htmlFor="arousalSlider">Arousal:</label>
+                <input
+                  type="range"
+                  id="arousalSlider"
+                  name="arousalSlider"
+                  min="1"
+                  max="9"
+                  value={arousal}
+                  onChange={handleArousalChange}
+                />
+                <span>{arousal}</span>
+              </div>
+      
+        </div>
+        
       </div>
 
-      {/* Arousal slider */}
-      <div style={{ marginBottom: '20px' }}>
-        <label htmlFor="arousalSlider">Arousal:</label>
-        <input
-          type="range"
-          id="arousalSlider"
-          name="arousalSlider"
-          min="1"
-          max="9"
-          value={arousal}
-          onChange={handleArousalChange}
-        />
-        <span>{arousal}</span>
-      </div>
+      {/* Participant ID */}
+      <button className="user-id">{randomId}</button>
+
+      {/* VibeVision text */}
+      <div className="vibe-vision">VibeVision</div> 
 
       {/* Next button */}
-      <button className="App-button" onClick={handleNextButtonClick} >
+      <button className="slider-button" onClick={handleNextButtonClick} >
         Next
       </button>
-
 
     </div>
   );
