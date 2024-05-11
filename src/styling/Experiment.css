@@ -1,0 +1,38 @@
+/* Experiment.css */
+
+.timer {
+  position: absolute;
+  top: 30%;
+  left: 47.5%;
+  font-size: 120px;
+  font-family: 'Libre Franklin';
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+
+.play-button {
+    position: absolute;
+    top: 70%;
+    left: 49.5%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-decoration: none;
+    padding: 13px 24px; /* Adjust padding as needed */
+    border-radius: 10px; /* To make it almost oval */
+    border: 1.5px solid white; /* Thick stroke */
+    background-color: transparent; /* Empty from the inside */
+    -webkit-backdrop-filter: blur(50px);
+            backdrop-filter: blur(50px); /* Blur from the inside */
+    font-size: 30px; /* Larger font size */
+    line-height: 0.9; /* Ensure the text doesn't increase box size */
+  }
+  
+  
+  .play-button:enabled:hover {
+    font-size: 34px; /* Larger font size */
+    border: 4px solid white; /* Thick stroke */
+
+  }
+  

@@ -48,7 +48,9 @@ const Instructions = () => {
 				Please read these instructions <b>carefully</b> to complete the experiment smoothly:
 					<br /><br />
 					<br /><br />
-					- When you click the "Start" button below, a timer will appear and the experiment <b>begins</b>.
+					- When you click the "Start" button below, the experiment <b>begins</b>.
+					<br /><br />
+					- When you click the "Play" button, a timer will start.
 					<br /><br />
 					- When the timer hits zero, an audio file will play. 
 					<br /><br />
