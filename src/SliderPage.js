@@ -73,7 +73,7 @@ const SliderPage = () => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'session_data.json';
+        a.download = `stats_id_${randomId}.json`;
 
         // Trigger the click event of the link to start download
         document.body.appendChild(a);
