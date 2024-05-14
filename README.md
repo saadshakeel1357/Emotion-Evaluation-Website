@@ -1,5 +1,12 @@
 # Emotion Evaluation Experiment Website
 
+
+## Description:
+
+This website is the technical deliverable of the authors 4th Semester Bachelor Semester Project (BSP). More details about the results of the experiment will be in the final report, which will be shared here once it is finished. 
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
