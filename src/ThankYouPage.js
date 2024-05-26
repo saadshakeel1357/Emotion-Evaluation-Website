@@ -24,7 +24,7 @@ const ThankYou = () => {
         <img src={thanksSvg} alt="thanks" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
 
         {/* Start button */}
-        {/* <button className="stats-button" onClick={() => window.location.href = "/"}>Results</button> */}
+        <button className="stats-button" onClick={() => window.location.href = `/stats?randomId=${randomId}`}>Results</button>
 
         {/* participant id */}
         <button className="user-id">{randomId}</button>

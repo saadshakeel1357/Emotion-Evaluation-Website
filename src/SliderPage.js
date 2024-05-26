@@ -37,7 +37,6 @@ const SliderPage = () => {
     setArousalModified(true); // Set arousalModified to true when arousal slider is modified
   };
 
-  const data = {};
 
   // Handler for next button click
   const handleNextButtonClick = () => {
@@ -52,37 +51,11 @@ const SliderPage = () => {
       sessionStorage.setItem(`valence${updatedClickCount-1}`, valence.toString());
       sessionStorage.setItem(`arousal${updatedClickCount-1}`, arousal.toString());
 
-      // Retrieve valence and arousal values from session storage and store in data object
-      for (let i = 1; i <= 10; i++) {
-        data[`valence${i}`] = sessionStorage.getItem(`valence${i}`);
-        data[`arousal${i}`] = sessionStorage.getItem(`arousal${i}`);
-      }
-
       // Save click count to local storage
       localStorage.setItem('clickCount', updatedClickCount.toString());
 
       // Change to 10 later
-      if (updatedClickCount > 10) {
-        // Convert data to JSON string
-        const jsonData = JSON.stringify(data);
-
-        // Create a blob with the data
-        const blob = new Blob([jsonData], { type: 'application/json' });
-
-        // Create a link to download the JSON file
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `stats_id_${randomId}.json`;
-
-        // Trigger the click event of the link to start download
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-
-        // Clear session storage
-        sessionStorage.clear();
-
+      if (updatedClickCount > 3) {
         // Redirect to thank you page if click count exceeds 10
         navigate(`/thankyou?randomId=${randomId}`)
       } else {

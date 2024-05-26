@@ -6,11 +6,12 @@ import mySound1 from './audios/89.mp3';
 import mySound2 from './audios/193.mp3';
 import mySound3 from './audios/367.mp3';
 import mySound4 from './audios/486.mp3';
-import mySound5 from './audios/714.mp3';
-import mySound6 from './audios/1075.mp3';
-import mySound7 from './audios/1077.mp3';
-import mySound8 from './audios/1555.mp3';
-import mySound9 from './audios/1646.mp3';
+import mySound5 from './audios/540.mp3';
+import mySound6 from './audios/714.mp3';
+import mySound7 from './audios/1075.mp3';
+import mySound8 from './audios/1077.mp3';
+import mySound9 from './audios/1555.mp3';
+import mySound10 from './audios/1646.mp3';
 import videoBg from "./components/bgvideo.mp4";
 import './styling/Experiment.css';
 
@@ -30,7 +31,7 @@ const Experiment = () => {
   // Define a function to determine the default sound
   const getDefaultSound = () => {
     // Define an array of sound files
-    const soundFiles = [mySound1, mySound2, mySound3, mySound4, mySound5, mySound6, mySound7, mySound8, mySound9];
+    const soundFiles = [mySound1, mySound2, mySound3, mySound4, mySound5, mySound6, mySound7, mySound8, mySound9, mySound10];
   
     // Ensure clickCount is within the range of available sound files
     const index = Math.min(Math.max(clickCount - 1, 0), soundFiles.length - 1);
