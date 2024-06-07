@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, Link, useLocation } from 'react-router-dom'; // Import necessary hooks and components from React Router
+import { Link, useLocation } from 'react-router-dom'; // Import necessary hooks and components from React Router
 import videoBg from "./components/bgvideo.mp4";
 import './App.css';
 import './styling/DemographicPage.css'; // Import CSS file for styling
@@ -15,7 +15,6 @@ const DemographicPage = () => {
     englishProficiency: '' // Add new state for English proficiency
   });
   const [formValid, setFormValid] = useState(false); // Track form validity
-  const navigate = useNavigate();
 
   // Effect to check form validity on form data change
   useEffect(() => {
@@ -53,9 +52,9 @@ const DemographicPage = () => {
       anchor.click();
 
       // Clean up
-      URL.revokeObjectURL(anchor.href);
+      // URL.revokeObjectURL(anchor.href);
 
-      navigate('/instructions'); // Navigate to the next page
+      // navigate('/instructions'); // Navigate to the next page
     } else {
       alert('Please fill in all required fields.');
     }

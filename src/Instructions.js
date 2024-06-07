@@ -30,6 +30,9 @@ const Instructions = () => {
 
 	console.log(clickCount);
 
+	// URL.revokeObjectURL(anchor.href);
+	
+
 	return (
 
 		<div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>

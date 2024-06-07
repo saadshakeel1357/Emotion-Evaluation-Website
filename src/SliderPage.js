@@ -55,7 +55,7 @@ const SliderPage = () => {
       localStorage.setItem('clickCount', updatedClickCount.toString());
 
       // Change to 10 later
-      if (updatedClickCount > 3) {
+      if (updatedClickCount > 10) {
         // Redirect to thank you page if click count exceeds 10
         navigate(`/thankyou?randomId=${randomId}`)
       } else {
